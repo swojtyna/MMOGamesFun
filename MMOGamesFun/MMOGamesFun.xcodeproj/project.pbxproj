@@ -14,6 +14,10 @@
 		A2E88736282187D9001D8FB6 /* MMOGamesFunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E88735282187D9001D8FB6 /* MMOGamesFunTests.swift */; };
 		A2E88740282187D9001D8FB6 /* MMOGamesFunUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E8873F282187D9001D8FB6 /* MMOGamesFunUITests.swift */; };
 		A2E88742282187D9001D8FB6 /* MMOGamesFunUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E88741282187D9001D8FB6 /* MMOGamesFunUITestsLaunchTests.swift */; };
+		A2E8875128218D46001D8FB6 /* MMOGamesAPI in Resources */ = {isa = PBXBuildFile; fileRef = A2E8875028218D46001D8FB6 /* MMOGamesAPI */; };
+		A2E8875728218DF3001D8FB6 /* DIContainer+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E8875628218DF3001D8FB6 /* DIContainer+Injection.swift */; };
+		A2E8875E2821922D001D8FB6 /* DIContainer in Frameworks */ = {isa = PBXBuildFile; productRef = A2E8875D2821922D001D8FB6 /* DIContainer */; };
+		A2E887602821922D001D8FB6 /* MMOGamesAPI in Frameworks */ = {isa = PBXBuildFile; productRef = A2E8875F2821922D001D8FB6 /* MMOGamesAPI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,9 @@
 		A2E8873B282187D9001D8FB6 /* MMOGamesFunUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MMOGamesFunUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2E8873F282187D9001D8FB6 /* MMOGamesFunUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMOGamesFunUITests.swift; sourceTree = "<group>"; };
 		A2E88741282187D9001D8FB6 /* MMOGamesFunUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMOGamesFunUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A2E8875028218D46001D8FB6 /* MMOGamesAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MMOGamesAPI; sourceTree = "<group>"; };
+		A2E8875628218DF3001D8FB6 /* DIContainer+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DIContainer+Injection.swift"; sourceTree = "<group>"; };
+		A2E8875928218EF7001D8FB6 /* DIContainer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DIContainer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2E8875E2821922D001D8FB6 /* DIContainer in Frameworks */,
+				A2E887602821922D001D8FB6 /* MMOGamesAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +88,7 @@
 				A2E88734282187D9001D8FB6 /* MMOGamesFunTests */,
 				A2E8873E282187D9001D8FB6 /* MMOGamesFunUITests */,
 				A2E8871C282187D8001D8FB6 /* Products */,
+				A2E8875A282191AB001D8FB6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +105,8 @@
 		A2E8871D282187D8001D8FB6 /* MMOGamesFun */ = {
 			isa = PBXGroup;
 			children = (
+				A2E8875528218DDD001D8FB6 /* DIContainer */,
+				A2E8874E28218CB2001D8FB6 /* Packages */,
 				A2E8871E282187D8001D8FB6 /* AppDelegate.swift */,
 				A2E88722282187D8001D8FB6 /* ViewController.swift */,
 				A2E88727282187D9001D8FB6 /* Assets.xcassets */,
@@ -121,6 +133,46 @@
 			path = MMOGamesFunUITests;
 			sourceTree = "<group>";
 		};
+		A2E8874E28218CB2001D8FB6 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				A2E8875228218D72001D8FB6 /* Common */,
+				A2E8874F28218D46001D8FB6 /* Network */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		A2E8874F28218D46001D8FB6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A2E8875028218D46001D8FB6 /* MMOGamesAPI */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A2E8875228218D72001D8FB6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A2E8875928218EF7001D8FB6 /* DIContainer */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		A2E8875528218DDD001D8FB6 /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+				A2E8875628218DF3001D8FB6 /* DIContainer+Injection.swift */,
+			);
+			path = DIContainer;
+			sourceTree = "<group>";
+		};
+		A2E8875A282191AB001D8FB6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,6 +189,10 @@
 			dependencies = (
 			);
 			name = MMOGamesFun;
+			packageProductDependencies = (
+				A2E8875D2821922D001D8FB6 /* DIContainer */,
+				A2E8875F2821922D001D8FB6 /* MMOGamesAPI */,
+			);
 			productName = MMOGamesFun;
 			productReference = A2E8871B282187D8001D8FB6 /* MMOGamesFun.app */;
 			productType = "com.apple.product-type.application";
@@ -226,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2E8872B282187D9001D8FB6 /* LaunchScreen.storyboard in Resources */,
+				A2E8875128218D46001D8FB6 /* MMOGamesAPI in Resources */,
 				A2E88728282187D9001D8FB6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +310,7 @@
 			files = (
 				A2E88723282187D8001D8FB6 /* ViewController.swift in Sources */,
 				A2E8871F282187D8001D8FB6 /* AppDelegate.swift in Sources */,
+				A2E8875728218DF3001D8FB6 /* DIContainer+Injection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,6 +642,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A2E8875D2821922D001D8FB6 /* DIContainer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DIContainer;
+		};
+		A2E8875F2821922D001D8FB6 /* MMOGamesAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MMOGamesAPI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A2E88713282187D8001D8FB6 /* Project object */;
 }
