@@ -10,7 +10,6 @@
 		A2E8871F282187D8001D8FB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E8871E282187D8001D8FB6 /* AppDelegate.swift */; };
 		A2E88721282187D8001D8FB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E88720282187D8001D8FB6 /* SceneDelegate.swift */; };
 		A2E88723282187D8001D8FB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E88722282187D8001D8FB6 /* ViewController.swift */; };
-		A2E88726282187D8001D8FB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2E88724282187D8001D8FB6 /* Main.storyboard */; };
 		A2E88728282187D9001D8FB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2E88727282187D9001D8FB6 /* Assets.xcassets */; };
 		A2E8872B282187D9001D8FB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2E88729282187D9001D8FB6 /* LaunchScreen.storyboard */; };
 		A2E88736282187D9001D8FB6 /* MMOGamesFunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E88735282187D9001D8FB6 /* MMOGamesFunTests.swift */; };
@@ -40,7 +39,6 @@
 		A2E8871E282187D8001D8FB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2E88720282187D8001D8FB6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A2E88722282187D8001D8FB6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A2E88725282187D8001D8FB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A2E88727282187D9001D8FB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2E8872A282187D9001D8FB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2E8872C282187D9001D8FB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 				A2E8871E282187D8001D8FB6 /* AppDelegate.swift */,
 				A2E88720282187D8001D8FB6 /* SceneDelegate.swift */,
 				A2E88722282187D8001D8FB6 /* ViewController.swift */,
-				A2E88724282187D8001D8FB6 /* Main.storyboard */,
 				A2E88727282187D9001D8FB6 /* Assets.xcassets */,
 				A2E88729282187D9001D8FB6 /* LaunchScreen.storyboard */,
 				A2E8872C282187D9001D8FB6 /* Info.plist */,
@@ -233,7 +230,6 @@
 			files = (
 				A2E8872B282187D9001D8FB6 /* LaunchScreen.storyboard in Resources */,
 				A2E88728282187D9001D8FB6 /* Assets.xcassets in Resources */,
-				A2E88726282187D8001D8FB6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +293,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A2E88724282187D8001D8FB6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A2E88725282187D8001D8FB6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A2E88729282187D9001D8FB6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -442,7 +430,6 @@
 				INFOPLIST_FILE = MMOGamesFun/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,7 +457,6 @@
 				INFOPLIST_FILE = MMOGamesFun/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
