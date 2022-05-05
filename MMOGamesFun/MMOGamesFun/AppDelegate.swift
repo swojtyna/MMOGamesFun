@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GamesListScene
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
