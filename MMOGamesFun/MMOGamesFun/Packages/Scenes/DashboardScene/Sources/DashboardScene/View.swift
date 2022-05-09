@@ -10,7 +10,7 @@ import SwiftUI
 
 public struct DashboardView: View {
     @InjectedObject
-    var viewModel: ViewModel
+    public var viewModel: ViewModel
 
     public init() {}
     public var body: some View {

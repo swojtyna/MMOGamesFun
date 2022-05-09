@@ -26,6 +26,8 @@ public final class ViewController: UITableViewController {
 
         update(accordingTo: viewModel.currentState)
         viewModel.get()
+
+        title = "Games list"
     }
 
     private func setupTableView() {

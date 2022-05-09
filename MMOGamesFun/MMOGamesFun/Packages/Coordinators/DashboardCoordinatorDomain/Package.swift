@@ -4,32 +4,28 @@
 import PackageDescription
 
 let package = Package(
-    name: "DashboardScene",
+    name: "DashboardCoordinatorDomain",
     platforms: [
         .iOS(.v15)
     ],
     products: [
         .library(
-            name: "DashboardScene",
-            targets: ["DashboardScene"]),
+            name: "DashboardCoordinatorDomain",
+            targets: ["DashboardCoordinatorDomain"]),
     ],
     dependencies: [
         .package(path: "../../Common/DIContainer"),
         .package(path: "../../Common/Extensions"),
-        .package(path: "../../UseCases/GetGamesUseCase"),
-        .package(path: "../../Coordinators/DashboardCoordinatorDomain"),
     ],
     targets: [
         .target(
-            name: "DashboardScene",
+            name: "DashboardCoordinatorDomain",
             dependencies: [
                 "DIContainer",
                 "Extensions",
-                "GetGamesUseCase",
-                "DashboardCoordinatorDomain",
             ]),
         .testTarget(
-            name: "DashboardSceneTests",
-            dependencies: ["DashboardScene"]),
+            name: "DashboardCoordinatorDomainTests",
+            dependencies: ["DashboardCoordinatorDomain"]),
     ]
 )

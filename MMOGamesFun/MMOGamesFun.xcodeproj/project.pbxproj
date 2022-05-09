@@ -11,6 +11,11 @@
 		A20CE3F62823C343001071E3 /* GamesRepository in Frameworks */ = {isa = PBXBuildFile; productRef = A20CE3F52823C343001071E3 /* GamesRepository */; };
 		A20CE3F82823C343001071E3 /* GetGamesUseCase in Frameworks */ = {isa = PBXBuildFile; productRef = A20CE3F72823C343001071E3 /* GetGamesUseCase */; };
 		A20CE3FA2823C343001071E3 /* GetGameUseCase in Frameworks */ = {isa = PBXBuildFile; productRef = A20CE3F92823C343001071E3 /* GetGameUseCase */; };
+		A29DCDAC2829097C004C95E6 /* DashboardCoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = A29DCDAB2829097C004C95E6 /* DashboardCoordinator */; };
+		A29DCDAE2829097C004C95E6 /* DashboardTabCoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = A29DCDAD2829097C004C95E6 /* DashboardTabCoordinator */; };
+		A29DCDB02829097C004C95E6 /* FavoritesCoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = A29DCDAF2829097C004C95E6 /* FavoritesCoordinator */; };
+		A29DCDB42829097C004C95E6 /* HomeTabBarCoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = A29DCDB32829097C004C95E6 /* HomeTabBarCoordinator */; };
+		A29DCDB728290FE6004C95E6 /* FavoritesTabCoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = A29DCDB628290FE6004C95E6 /* FavoritesTabCoordinator */; };
 		A2E8871F282187D8001D8FB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E8871E282187D8001D8FB6 /* AppDelegate.swift */; };
 		A2E88728282187D9001D8FB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2E88727282187D9001D8FB6 /* Assets.xcassets */; };
 		A2E8872B282187D9001D8FB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2E88729282187D9001D8FB6 /* LaunchScreen.storyboard */; };
@@ -21,6 +26,7 @@
 		A2E8875728218DF3001D8FB6 /* DIContainer+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E8875628218DF3001D8FB6 /* DIContainer+Injection.swift */; };
 		A2E8875E2821922D001D8FB6 /* DIContainer in Frameworks */ = {isa = PBXBuildFile; productRef = A2E8875D2821922D001D8FB6 /* DIContainer */; };
 		A2E887602821922D001D8FB6 /* MMOGamesAPI in Frameworks */ = {isa = PBXBuildFile; productRef = A2E8875F2821922D001D8FB6 /* MMOGamesAPI */; };
+		A2EA585628291B0C00F0F9DD /* GamesListCoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = A2EA585528291B0C00F0F9DD /* GamesListCoordinator */; };
 		A2EF8E2E282857CB009CD6A0 /* DashboardScene in Frameworks */ = {isa = PBXBuildFile; productRef = A2EF8E2D282857CB009CD6A0 /* DashboardScene */; };
 		A2EF8E30282857CB009CD6A0 /* FavoritesScene in Frameworks */ = {isa = PBXBuildFile; productRef = A2EF8E2F282857CB009CD6A0 /* FavoritesScene */; };
 /* End PBXBuildFile section */
@@ -43,11 +49,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A203618228291A5200375A00 /* GamesListCoordinator */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GamesListCoordinator; sourceTree = "<group>"; };
 		A20CE3EF2823C241001071E3 /* GamesRepository */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GamesRepository; sourceTree = "<group>"; };
 		A20CE3F02823C278001071E3 /* GetGameUseCase */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GetGameUseCase; sourceTree = "<group>"; };
 		A20CE3F12823C29B001071E3 /* GetGamesUseCase */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GetGamesUseCase; sourceTree = "<group>"; };
 		A20CE3F22823C2B8001071E3 /* GamesListScene */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GamesListScene; sourceTree = "<group>"; };
 		A21107C02823CDA4009C6852 /* Extensions */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Extensions; sourceTree = "<group>"; };
+		A228D4E32829334A00B1C858 /* DashboardCoordinatorDomain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DashboardCoordinatorDomain; sourceTree = "<group>"; };
+		A29DCDA62829092A004C95E6 /* HomeTabBarCoordinator */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = HomeTabBarCoordinator; sourceTree = "<group>"; };
+		A29DCDA72829092A004C95E6 /* DashboardCoordinator */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DashboardCoordinator; sourceTree = "<group>"; };
+		A29DCDA82829092A004C95E6 /* DashboardTabCoordinator */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DashboardTabCoordinator; sourceTree = "<group>"; };
+		A29DCDA92829092A004C95E6 /* FavoritesCoordinator */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FavoritesCoordinator; sourceTree = "<group>"; };
+		A29DCDB528290FB1004C95E6 /* FavoritesTabCoordinator */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FavoritesTabCoordinator; sourceTree = "<group>"; };
 		A2E8871B282187D8001D8FB6 /* MMOGamesFun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMOGamesFun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2E8871E282187D8001D8FB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2E88727282187D9001D8FB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,13 +84,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				A20CE3F62823C343001071E3 /* GamesRepository in Frameworks */,
+				A29DCDAC2829097C004C95E6 /* DashboardCoordinator in Frameworks */,
 				A20CE3FA2823C343001071E3 /* GetGameUseCase in Frameworks */,
+				A29DCDB728290FE6004C95E6 /* FavoritesTabCoordinator in Frameworks */,
 				A2E8875E2821922D001D8FB6 /* DIContainer in Frameworks */,
+				A29DCDB02829097C004C95E6 /* FavoritesCoordinator in Frameworks */,
 				A2EF8E2E282857CB009CD6A0 /* DashboardScene in Frameworks */,
 				A20CE3F82823C343001071E3 /* GetGamesUseCase in Frameworks */,
 				A20CE3F42823C343001071E3 /* GamesListScene in Frameworks */,
+				A2EA585628291B0C00F0F9DD /* GamesListCoordinator in Frameworks */,
 				A2E887602821922D001D8FB6 /* MMOGamesAPI in Frameworks */,
+				A29DCDAE2829097C004C95E6 /* DashboardTabCoordinator in Frameworks */,
 				A2EF8E30282857CB009CD6A0 /* FavoritesScene in Frameworks */,
+				A29DCDB42829097C004C95E6 /* HomeTabBarCoordinator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +142,20 @@
 				A20CE3F22823C2B8001071E3 /* GamesListScene */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		A29DCDA528290511004C95E6 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				A29DCDA72829092A004C95E6 /* DashboardCoordinator */,
+				A228D4E32829334A00B1C858 /* DashboardCoordinatorDomain */,
+				A29DCDA82829092A004C95E6 /* DashboardTabCoordinator */,
+				A29DCDA92829092A004C95E6 /* FavoritesCoordinator */,
+				A29DCDB528290FB1004C95E6 /* FavoritesTabCoordinator */,
+				A203618228291A5200375A00 /* GamesListCoordinator */,
+				A29DCDA62829092A004C95E6 /* HomeTabBarCoordinator */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		A2E88712282187D8001D8FB6 = {
@@ -179,6 +212,7 @@
 		A2E8874E28218CB2001D8FB6 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				A29DCDA528290511004C95E6 /* Coordinators */,
 				A20CE3EE2823C209001071E3 /* Scenes */,
 				A20CE3ED2823C203001071E3 /* UseCases */,
 				A20CE3EC2823C1FD001071E3 /* Repositories */,
@@ -245,6 +279,12 @@
 				A20CE3F92823C343001071E3 /* GetGameUseCase */,
 				A2EF8E2D282857CB009CD6A0 /* DashboardScene */,
 				A2EF8E2F282857CB009CD6A0 /* FavoritesScene */,
+				A29DCDAB2829097C004C95E6 /* DashboardCoordinator */,
+				A29DCDAD2829097C004C95E6 /* DashboardTabCoordinator */,
+				A29DCDAF2829097C004C95E6 /* FavoritesCoordinator */,
+				A29DCDB32829097C004C95E6 /* HomeTabBarCoordinator */,
+				A29DCDB628290FE6004C95E6 /* FavoritesTabCoordinator */,
+				A2EA585528291B0C00F0F9DD /* GamesListCoordinator */,
 			);
 			productName = MMOGamesFun;
 			productReference = A2E8871B282187D8001D8FB6 /* MMOGamesFun.app */;
@@ -712,6 +752,26 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = GetGameUseCase;
 		};
+		A29DCDAB2829097C004C95E6 /* DashboardCoordinator */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DashboardCoordinator;
+		};
+		A29DCDAD2829097C004C95E6 /* DashboardTabCoordinator */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DashboardTabCoordinator;
+		};
+		A29DCDAF2829097C004C95E6 /* FavoritesCoordinator */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FavoritesCoordinator;
+		};
+		A29DCDB32829097C004C95E6 /* HomeTabBarCoordinator */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HomeTabBarCoordinator;
+		};
+		A29DCDB628290FE6004C95E6 /* FavoritesTabCoordinator */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FavoritesTabCoordinator;
+		};
 		A2E8875D2821922D001D8FB6 /* DIContainer */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DIContainer;
@@ -719,6 +779,10 @@
 		A2E8875F2821922D001D8FB6 /* MMOGamesAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MMOGamesAPI;
+		};
+		A2EA585528291B0C00F0F9DD /* GamesListCoordinator */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GamesListCoordinator;
 		};
 		A2EF8E2D282857CB009CD6A0 /* DashboardScene */ = {
 			isa = XCSwiftPackageProductDependency;

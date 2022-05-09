@@ -21,6 +21,9 @@ public final class ViewController: UIViewController {
 
         update(accordingTo: viewModel.currentState)
         viewModel.get()
+
+        view.backgroundColor = .white
+        title = "Favorites"
     }
 
     private func update(accordingTo state: State) {

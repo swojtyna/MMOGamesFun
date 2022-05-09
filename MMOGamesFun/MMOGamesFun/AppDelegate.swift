@@ -8,18 +8,23 @@
 import UIKit
 import GamesListScene
 import DashboardScene
+import HomeTabBarCoordinator
+import DIContainer
 import SwiftUI
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    @LazyInjected
+    var homeTabBarCoordinator: CoordinatorProtocol
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         DIContainerInjection.registerAll()
 
         window = UIWindow()
-        window?.rootViewController = ViewController()
+        window?.rootViewController = homeTabBarCoordinator.start()
+//        window?.rootViewController = ViewController()
 //        window?.rootViewController = UIHostingController(rootView: DashboardView())
         window?.makeKeyAndVisible()
 
