@@ -15,11 +15,15 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../../Common/DIContainer"),
+        .package(path: "../../Network/MMOGamesAPI"),
     ],
     targets: [
         .target(
             name: "GamesRepository",
-            dependencies: ["DIContainer"]),
+            dependencies: [
+                "DIContainer",
+                "MMOGamesAPI"
+            ]),
         .testTarget(
             name: "GamesRepositoryTests",
             dependencies: ["GamesRepository"]),

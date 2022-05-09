@@ -16,11 +16,16 @@ let package = Package(
     dependencies: [
         .package(path: "../../Common/DIContainer"),
         .package(path: "../../Common/Extensions"),
+        .package(path: "../../UseCases/GetGamesUseCase"),
     ],
     targets: [
         .target(
             name: "GamesListScene",
-            dependencies: ["DIContainer", "Extensions"]),
+            dependencies: [
+                "DIContainer",
+                "Extensions",
+                "GetGamesUseCase"
+            ]),
         .testTarget(
             name: "GamesListSceneTests",
             dependencies: ["GamesListScene"]),

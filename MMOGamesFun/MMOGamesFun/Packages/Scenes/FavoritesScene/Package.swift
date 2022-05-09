@@ -4,27 +4,30 @@
 import PackageDescription
 
 let package = Package(
-    name: "GetGamesUseCase",
+    name: "FavoritesScene",
     platforms: [
-        .iOS(.v15),
+        .iOS(.v15)
     ],
     products: [
         .library(
-            name: "GetGamesUseCase",
-            targets: ["GetGamesUseCase"]),
+            name: "FavoritesScene",
+            targets: ["FavoritesScene"]),
     ],
     dependencies: [
         .package(path: "../../Common/DIContainer"),
-        .package(path: "../../Repositories/GamesRepository"),
+        .package(path: "../../Common/Extensions"),
+        .package(path: "../../UseCases/GetGamesUseCase"),
     ],
     targets: [
         .target(
-            name: "GetGamesUseCase",
+            name: "FavoritesScene",
             dependencies: [
                 "DIContainer",
-                "GamesRepository",
+                "Extensions",
+                "GetGamesUseCase"
             ]),
         .testTarget(
-            name: "GetGamesUseCaseTests",
-            dependencies: ["GetGamesUseCase"]),
-    ])
+            name: "FavoritesSceneTests",
+            dependencies: ["FavoritesScene"]),
+    ]
+)

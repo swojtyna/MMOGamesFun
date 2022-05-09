@@ -7,6 +7,8 @@
 
 import UIKit
 import GamesListScene
+import DashboardScene
+import SwiftUI
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow()
         window?.rootViewController = ViewController()
+//        window?.rootViewController = UIHostingController(rootView: DashboardView())
         window?.makeKeyAndVisible()
 
         return true

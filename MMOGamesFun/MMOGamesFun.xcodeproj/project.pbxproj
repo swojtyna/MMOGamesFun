@@ -21,6 +21,8 @@
 		A2E8875728218DF3001D8FB6 /* DIContainer+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E8875628218DF3001D8FB6 /* DIContainer+Injection.swift */; };
 		A2E8875E2821922D001D8FB6 /* DIContainer in Frameworks */ = {isa = PBXBuildFile; productRef = A2E8875D2821922D001D8FB6 /* DIContainer */; };
 		A2E887602821922D001D8FB6 /* MMOGamesAPI in Frameworks */ = {isa = PBXBuildFile; productRef = A2E8875F2821922D001D8FB6 /* MMOGamesAPI */; };
+		A2EF8E2E282857CB009CD6A0 /* DashboardScene in Frameworks */ = {isa = PBXBuildFile; productRef = A2EF8E2D282857CB009CD6A0 /* DashboardScene */; };
+		A2EF8E30282857CB009CD6A0 /* FavoritesScene in Frameworks */ = {isa = PBXBuildFile; productRef = A2EF8E2F282857CB009CD6A0 /* FavoritesScene */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		A2E8875028218D46001D8FB6 /* MMOGamesAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MMOGamesAPI; sourceTree = "<group>"; };
 		A2E8875628218DF3001D8FB6 /* DIContainer+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DIContainer+Injection.swift"; sourceTree = "<group>"; };
 		A2E8875928218EF7001D8FB6 /* DIContainer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DIContainer; sourceTree = "<group>"; };
+		A2F44A102828463F00642571 /* DashboardScene */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DashboardScene; sourceTree = "<group>"; };
+		A2F44A112828463F00642571 /* FavoritesScene */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FavoritesScene; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,9 +73,11 @@
 				A20CE3F62823C343001071E3 /* GamesRepository in Frameworks */,
 				A20CE3FA2823C343001071E3 /* GetGameUseCase in Frameworks */,
 				A2E8875E2821922D001D8FB6 /* DIContainer in Frameworks */,
+				A2EF8E2E282857CB009CD6A0 /* DashboardScene in Frameworks */,
 				A20CE3F82823C343001071E3 /* GetGamesUseCase in Frameworks */,
 				A20CE3F42823C343001071E3 /* GamesListScene in Frameworks */,
 				A2E887602821922D001D8FB6 /* MMOGamesAPI in Frameworks */,
+				A2EF8E30282857CB009CD6A0 /* FavoritesScene in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +118,8 @@
 		A20CE3EE2823C209001071E3 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A2F44A102828463F00642571 /* DashboardScene */,
+				A2F44A112828463F00642571 /* FavoritesScene */,
 				A20CE3F22823C2B8001071E3 /* GamesListScene */,
 			);
 			path = Scenes;
@@ -235,6 +243,8 @@
 				A20CE3F52823C343001071E3 /* GamesRepository */,
 				A20CE3F72823C343001071E3 /* GetGamesUseCase */,
 				A20CE3F92823C343001071E3 /* GetGameUseCase */,
+				A2EF8E2D282857CB009CD6A0 /* DashboardScene */,
+				A2EF8E2F282857CB009CD6A0 /* FavoritesScene */,
 			);
 			productName = MMOGamesFun;
 			productReference = A2E8871B282187D8001D8FB6 /* MMOGamesFun.app */;
@@ -709,6 +719,14 @@
 		A2E8875F2821922D001D8FB6 /* MMOGamesAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MMOGamesAPI;
+		};
+		A2EF8E2D282857CB009CD6A0 /* DashboardScene */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DashboardScene;
+		};
+		A2EF8E2F282857CB009CD6A0 /* FavoritesScene */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FavoritesScene;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
