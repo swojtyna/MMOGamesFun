@@ -79,6 +79,7 @@ final class DIContainerInjection {
         DIContainer.register(type: RepositoryProtocol.self) { _ in
             Repository()
         }
+        // add scope
     }
 
     static func registerNetworksLayer() {

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 public struct Game {
     public let id: Int
@@ -24,5 +25,5 @@ public struct Game {
 public typealias Completion = (Result<[Game], Error>) -> Void
 
 public protocol RepositoryProtocol {
-    func get(completion: @escaping Completion)
+    func games() -> AnyPublisher<[Game], Error>
 }

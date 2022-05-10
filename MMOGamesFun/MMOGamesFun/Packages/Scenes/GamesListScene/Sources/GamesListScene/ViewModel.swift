@@ -5,8 +5,9 @@
 //  Created by Sebastian Wojtyna on 05/05/2022.
 //
 
-import Foundation
+import Combine
 import DIContainer
+import Foundation
 import GetGamesUseCase
 
 public final class ViewModel: ViewModelProtocol {
@@ -17,6 +18,8 @@ public final class ViewModel: ViewModelProtocol {
         }
     }
 
+    var subscriptions = Set<AnyCancellable>()
+
     @LazyInjected
     var getListUseCase: UseCaseProtocol
 
@@ -25,41 +28,17 @@ public final class ViewModel: ViewModelProtocol {
     public func get() {
         print("🍎🍎🍎🍎 get")
 
-        getListUseCase.execute { [weak self] result in
-            guard let self = self else { return }
+        getListUseCase.execute()
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { [unowned self] completion in
+                print("👾 receiveCompletion \(completion)")
+                guard case .failure(let error) = completion else { return }
 
-            Task {
-                switch result {
-                case .success(let games):
-    //                self.currentState = .populated(games.map(DisplayRow.init))
-                    await self.updateState(with: .success(games.map(DisplayRow.init)))
-                case .failure(let error):
-    //                self.currentState = .error(error)
-                    await self.updateState(with: .failure(error))
-                }
-            }
-
-
-        }
-
-//        let mockedData: [DisplayRow] = [.init(title: "test1",platform: "PC"),
-//                                        .init(title: "test2",platform: "MOBILE"),
-//                                        .init(title: "test3",platform: "MOBILE"),
-//                                        .init(title: "test4",platform: "PSX5"),
-//                                        .init(title: "test5",platform: "PSX5"),
-//                                        .init(title: "test6",platform: "PSX5")]
-//
-//        currentState = .populated(mockedData)
-    }
-
-    @MainActor
-    func updateState(with result: Result<[DisplayRow], Error>) {
-        switch result {
-        case .success(let games):
-            self.currentState = .populated(games)
-        case .failure(let error):
-            self.currentState = .error(error)
-        }
+                self.currentState = .error(error)
+            }, receiveValue: { [unowned self] games in
+                self.currentState = .populated(games.map(DisplayRow.init))
+            })
+            .store(in: &subscriptions)
     }
 }
 

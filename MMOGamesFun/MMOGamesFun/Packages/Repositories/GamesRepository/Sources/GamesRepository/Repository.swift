@@ -1,5 +1,6 @@
 import Combine
 import DIContainer
+import Foundation
 import MMOGamesAPI
 
 public final class Repository: RepositoryProtocol {
@@ -8,15 +9,10 @@ public final class Repository: RepositoryProtocol {
 
     public init() {}
 
-    public func get(completion: @escaping Completion) {
-        Task {
-            do {
-                let games = try await client.fetchGames()
-                completion(.success(games.map(Game.init)))
-            } catch {
-                completion(.failure(error))
-            }
-        }
+    public func games() -> AnyPublisher<[Game], Error> {
+        client.games()
+            .compactMap { $0.map(Game.init) }
+            .eraseToAnyPublisher()
     }
 }
 

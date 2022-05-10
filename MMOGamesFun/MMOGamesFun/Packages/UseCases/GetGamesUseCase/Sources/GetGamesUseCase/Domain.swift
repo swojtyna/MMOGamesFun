@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 public struct Game {
     public let id: Int
@@ -23,8 +24,6 @@ public struct Game {
     public var additionalTestUseCaseProperty: String?
 }
 
-public typealias Completion = (Result<[Game], Error>) -> Void
-
 public protocol UseCaseProtocol {
-    func execute(completion: @escaping Completion)
+    func execute() -> AnyPublisher<[Game], Error>
 }

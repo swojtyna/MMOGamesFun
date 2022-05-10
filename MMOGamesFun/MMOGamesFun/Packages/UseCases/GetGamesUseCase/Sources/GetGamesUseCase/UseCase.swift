@@ -1,5 +1,6 @@
 import DIContainer
 import GamesRepository
+import Combine
 
 public final class UseCase: UseCaseProtocol {
     @LazyInjected
@@ -7,15 +8,10 @@ public final class UseCase: UseCaseProtocol {
 
     public init() {}
 
-    public func execute(completion: @escaping Completion) {
-        repository.get { result in
-            switch result {
-            case .success(let games):
-                completion(.success(games.map(Game.init)))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    public func execute() -> AnyPublisher<[Game], Error> {
+        repository.games()
+            .compactMap { $0.map(Game.init) }
+            .eraseToAnyPublisher()
     }
 }
 

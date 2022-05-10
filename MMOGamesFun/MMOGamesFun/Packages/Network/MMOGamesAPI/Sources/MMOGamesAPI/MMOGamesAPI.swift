@@ -1,3 +1,4 @@
+import Combine
 import DIContainer
 import Foundation
 
@@ -23,6 +24,7 @@ public struct GameElement: Codable {
 
 public protocol MMOGamesAPIProtocol {
     func fetchGames() async throws -> [GameElement]
+    func games() -> AnyPublisher<[GameElement], Error>
 }
 
 public struct MMOGamesAPI: MMOGamesAPIProtocol {
@@ -35,5 +37,13 @@ public struct MMOGamesAPI: MMOGamesAPIProtocol {
         let (data, _) = try await session.data(from: url)
 
         return try JSONDecoder().decode([GameElement].self, from: data)
+    }
+
+    public func games() -> AnyPublisher<[GameElement], Error> {
+        URLSession.shared.dataTaskPublisher(for: url)
+            .mapError { $0 as Error }
+            .map { $0.data }
+            .decode(type: [GameElement].self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
     }
 }
