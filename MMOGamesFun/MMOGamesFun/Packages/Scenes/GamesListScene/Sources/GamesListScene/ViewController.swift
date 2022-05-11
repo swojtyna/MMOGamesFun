@@ -5,6 +5,7 @@
 //  Created by Sebastian Wojtyna on 05/05/2022.
 //
 
+import Combine
 import DIContainer
 import UIKit
 
@@ -14,18 +15,22 @@ public final class ViewController: UITableViewController {
 
     private lazy var adapter = Adapter()
 
+    private var subscriptions = Set<AnyCancellable>()
+
     override public func viewDidLoad() {
         super.viewDidLoad()
 
         setupTableView()
         setupAdapter()
 
-        viewModel.stateChanged = { [weak self] state in
-            self?.update(accordingTo: state)
-        }
-
-        update(accordingTo: viewModel.currentState)
-        viewModel.get()
+        viewModel.state
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: {
+                print("completion \($0)")
+            }, receiveValue: { [unowned self] state in
+                self.update(accordingTo: state)
+            })
+            .store(in: &subscriptions)
 
         title = "Games list"
     }

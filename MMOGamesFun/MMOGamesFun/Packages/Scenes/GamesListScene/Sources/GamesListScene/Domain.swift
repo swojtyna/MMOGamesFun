@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 public struct DisplayRow {
     public let title: String
@@ -18,12 +19,6 @@ public enum State {
     case error(Error)
 }
 
-public typealias StateChangeBlock = (State) -> Void
-public typealias DisplayRowAction = () -> Void
-
 public protocol ViewModelProtocol {
-    var currentState: State { get }
-    var stateChanged: StateChangeBlock? { set get }
-
-    func get()
+    var state: AnyPublisher<State, Never> { get }
 }

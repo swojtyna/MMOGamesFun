@@ -9,7 +9,7 @@ public final class UseCase: UseCaseProtocol {
     public init() {}
 
     public func execute() -> AnyPublisher<[Game], Error> {
-        repository.games()
+        repository.games
             .compactMap { $0.map(Game.init) }
             .eraseToAnyPublisher()
     }

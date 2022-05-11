@@ -7,13 +7,13 @@ public final class Repository: RepositoryProtocol {
     @LazyInjected
     var client: MMOGamesAPIProtocol
 
-    public init() {}
-
-    public func games() -> AnyPublisher<[Game], Error> {
+    public lazy var games: AnyPublisher<[Game], Error>  = {
         client.games()
             .compactMap { $0.map(Game.init) }
             .eraseToAnyPublisher()
-    }
+    }()
+
+    public init() {}
 }
 
 private extension Game {

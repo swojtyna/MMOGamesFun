@@ -25,5 +25,5 @@ public struct Game {
 public typealias Completion = (Result<[Game], Error>) -> Void
 
 public protocol RepositoryProtocol {
-    func games() -> AnyPublisher<[Game], Error>
+    var games: AnyPublisher<[Game], Error> { get }
 }
