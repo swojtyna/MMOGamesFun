@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A20704DF282D47DC00EABEEF /* MMOGamesAPI in Frameworks */ = {isa = PBXBuildFile; productRef = A20704DE282D47DC00EABEEF /* MMOGamesAPI */; };
 		A20CE3F42823C343001071E3 /* GamesListScene in Frameworks */ = {isa = PBXBuildFile; productRef = A20CE3F32823C343001071E3 /* GamesListScene */; };
 		A20CE3F62823C343001071E3 /* GamesRepository in Frameworks */ = {isa = PBXBuildFile; productRef = A20CE3F52823C343001071E3 /* GamesRepository */; };
 		A20CE3F82823C343001071E3 /* GetGamesUseCase in Frameworks */ = {isa = PBXBuildFile; productRef = A20CE3F72823C343001071E3 /* GetGamesUseCase */; };
@@ -16,6 +17,10 @@
 		A29DCDB02829097C004C95E6 /* FavoritesCoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = A29DCDAF2829097C004C95E6 /* FavoritesCoordinator */; };
 		A29DCDB42829097C004C95E6 /* HomeTabBarCoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = A29DCDB32829097C004C95E6 /* HomeTabBarCoordinator */; };
 		A29DCDB728290FE6004C95E6 /* FavoritesTabCoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = A29DCDB628290FE6004C95E6 /* FavoritesTabCoordinator */; };
+		A2C02D3F282CF68200334834 /* AddFavoriteGameUseCase in Frameworks */ = {isa = PBXBuildFile; productRef = A2C02D3E282CF68200334834 /* AddFavoriteGameUseCase */; };
+		A2C02D41282CF68200334834 /* FavoritesRepository in Frameworks */ = {isa = PBXBuildFile; productRef = A2C02D40282CF68200334834 /* FavoritesRepository */; };
+		A2C02D43282CF68200334834 /* RemoveFavoriteGameUseCase in Frameworks */ = {isa = PBXBuildFile; productRef = A2C02D42282CF68200334834 /* RemoveFavoriteGameUseCase */; };
+		A2C02D46282D3BEB00334834 /* GetFavoritesGamesUseCase in Frameworks */ = {isa = PBXBuildFile; productRef = A2C02D45282D3BEB00334834 /* GetFavoritesGamesUseCase */; };
 		A2E8871F282187D8001D8FB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E8871E282187D8001D8FB6 /* AppDelegate.swift */; };
 		A2E88728282187D9001D8FB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2E88727282187D9001D8FB6 /* Assets.xcassets */; };
 		A2E8872B282187D9001D8FB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2E88729282187D9001D8FB6 /* LaunchScreen.storyboard */; };
@@ -25,7 +30,6 @@
 		A2E8875128218D46001D8FB6 /* MMOGamesAPI in Resources */ = {isa = PBXBuildFile; fileRef = A2E8875028218D46001D8FB6 /* MMOGamesAPI */; };
 		A2E8875728218DF3001D8FB6 /* DIContainer+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E8875628218DF3001D8FB6 /* DIContainer+Injection.swift */; };
 		A2E8875E2821922D001D8FB6 /* DIContainer in Frameworks */ = {isa = PBXBuildFile; productRef = A2E8875D2821922D001D8FB6 /* DIContainer */; };
-		A2E887602821922D001D8FB6 /* MMOGamesAPI in Frameworks */ = {isa = PBXBuildFile; productRef = A2E8875F2821922D001D8FB6 /* MMOGamesAPI */; };
 		A2EA585628291B0C00F0F9DD /* GamesListCoordinator in Frameworks */ = {isa = PBXBuildFile; productRef = A2EA585528291B0C00F0F9DD /* GamesListCoordinator */; };
 		A2EF8E2E282857CB009CD6A0 /* DashboardScene in Frameworks */ = {isa = PBXBuildFile; productRef = A2EF8E2D282857CB009CD6A0 /* DashboardScene */; };
 		A2EF8E30282857CB009CD6A0 /* FavoritesScene in Frameworks */ = {isa = PBXBuildFile; productRef = A2EF8E2F282857CB009CD6A0 /* FavoritesScene */; };
@@ -61,6 +65,10 @@
 		A29DCDA82829092A004C95E6 /* DashboardTabCoordinator */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DashboardTabCoordinator; sourceTree = "<group>"; };
 		A29DCDA92829092A004C95E6 /* FavoritesCoordinator */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FavoritesCoordinator; sourceTree = "<group>"; };
 		A29DCDB528290FB1004C95E6 /* FavoritesTabCoordinator */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FavoritesTabCoordinator; sourceTree = "<group>"; };
+		A2C02D3B282CF3CC00334834 /* FavoritesRepository */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FavoritesRepository; sourceTree = "<group>"; };
+		A2C02D3C282CF3D400334834 /* AddFavoriteGameUseCase */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AddFavoriteGameUseCase; sourceTree = "<group>"; };
+		A2C02D3D282CF3D400334834 /* RemoveFavoriteGameUseCase */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RemoveFavoriteGameUseCase; sourceTree = "<group>"; };
+		A2C02D44282D3B1600334834 /* GetFavoritesGamesUseCase */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GetFavoritesGamesUseCase; sourceTree = "<group>"; };
 		A2E8871B282187D8001D8FB6 /* MMOGamesFun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMOGamesFun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2E8871E282187D8001D8FB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2E88727282187D9001D8FB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,17 +92,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				A20CE3F62823C343001071E3 /* GamesRepository in Frameworks */,
+				A2C02D3F282CF68200334834 /* AddFavoriteGameUseCase in Frameworks */,
 				A29DCDAC2829097C004C95E6 /* DashboardCoordinator in Frameworks */,
 				A20CE3FA2823C343001071E3 /* GetGameUseCase in Frameworks */,
+				A2C02D43282CF68200334834 /* RemoveFavoriteGameUseCase in Frameworks */,
 				A29DCDB728290FE6004C95E6 /* FavoritesTabCoordinator in Frameworks */,
 				A2E8875E2821922D001D8FB6 /* DIContainer in Frameworks */,
+				A2C02D41282CF68200334834 /* FavoritesRepository in Frameworks */,
 				A29DCDB02829097C004C95E6 /* FavoritesCoordinator in Frameworks */,
 				A2EF8E2E282857CB009CD6A0 /* DashboardScene in Frameworks */,
 				A20CE3F82823C343001071E3 /* GetGamesUseCase in Frameworks */,
 				A20CE3F42823C343001071E3 /* GamesListScene in Frameworks */,
 				A2EA585628291B0C00F0F9DD /* GamesListCoordinator in Frameworks */,
-				A2E887602821922D001D8FB6 /* MMOGamesAPI in Frameworks */,
+				A20704DF282D47DC00EABEEF /* MMOGamesAPI in Frameworks */,
 				A29DCDAE2829097C004C95E6 /* DashboardTabCoordinator in Frameworks */,
+				A2C02D46282D3BEB00334834 /* GetFavoritesGamesUseCase in Frameworks */,
 				A2EF8E30282857CB009CD6A0 /* FavoritesScene in Frameworks */,
 				A29DCDB42829097C004C95E6 /* HomeTabBarCoordinator in Frameworks */,
 			);
@@ -120,6 +132,7 @@
 		A20CE3EC2823C1FD001071E3 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				A2C02D3B282CF3CC00334834 /* FavoritesRepository */,
 				A20CE3EF2823C241001071E3 /* GamesRepository */,
 			);
 			path = Repositories;
@@ -128,6 +141,9 @@
 		A20CE3ED2823C203001071E3 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				A2C02D44282D3B1600334834 /* GetFavoritesGamesUseCase */,
+				A2C02D3C282CF3D400334834 /* AddFavoriteGameUseCase */,
+				A2C02D3D282CF3D400334834 /* RemoveFavoriteGameUseCase */,
 				A20CE3F12823C29B001071E3 /* GetGamesUseCase */,
 				A20CE3F02823C278001071E3 /* GetGameUseCase */,
 			);
@@ -272,7 +288,6 @@
 			name = MMOGamesFun;
 			packageProductDependencies = (
 				A2E8875D2821922D001D8FB6 /* DIContainer */,
-				A2E8875F2821922D001D8FB6 /* MMOGamesAPI */,
 				A20CE3F32823C343001071E3 /* GamesListScene */,
 				A20CE3F52823C343001071E3 /* GamesRepository */,
 				A20CE3F72823C343001071E3 /* GetGamesUseCase */,
@@ -285,6 +300,11 @@
 				A29DCDB32829097C004C95E6 /* HomeTabBarCoordinator */,
 				A29DCDB628290FE6004C95E6 /* FavoritesTabCoordinator */,
 				A2EA585528291B0C00F0F9DD /* GamesListCoordinator */,
+				A2C02D3E282CF68200334834 /* AddFavoriteGameUseCase */,
+				A2C02D40282CF68200334834 /* FavoritesRepository */,
+				A2C02D42282CF68200334834 /* RemoveFavoriteGameUseCase */,
+				A2C02D45282D3BEB00334834 /* GetFavoritesGamesUseCase */,
+				A20704DE282D47DC00EABEEF /* MMOGamesAPI */,
 			);
 			productName = MMOGamesFun;
 			productReference = A2E8871B282187D8001D8FB6 /* MMOGamesFun.app */;
@@ -736,6 +756,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A20704DE282D47DC00EABEEF /* MMOGamesAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MMOGamesAPI;
+		};
 		A20CE3F32823C343001071E3 /* GamesListScene */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GamesListScene;
@@ -772,13 +796,25 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = FavoritesTabCoordinator;
 		};
+		A2C02D3E282CF68200334834 /* AddFavoriteGameUseCase */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AddFavoriteGameUseCase;
+		};
+		A2C02D40282CF68200334834 /* FavoritesRepository */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FavoritesRepository;
+		};
+		A2C02D42282CF68200334834 /* RemoveFavoriteGameUseCase */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RemoveFavoriteGameUseCase;
+		};
+		A2C02D45282D3BEB00334834 /* GetFavoritesGamesUseCase */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GetFavoritesGamesUseCase;
+		};
 		A2E8875D2821922D001D8FB6 /* DIContainer */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DIContainer;
-		};
-		A2E8875F2821922D001D8FB6 /* MMOGamesAPI */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MMOGamesAPI;
 		};
 		A2EA585528291B0C00F0F9DD /* GamesListCoordinator */ = {
 			isa = XCSwiftPackageProductDependency;

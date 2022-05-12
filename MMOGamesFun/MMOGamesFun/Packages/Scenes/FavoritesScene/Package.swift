@@ -16,7 +16,9 @@ let package = Package(
     dependencies: [
         .package(path: "../../Common/DIContainer"),
         .package(path: "../../Common/Extensions"),
-        .package(path: "../../UseCases/GetGamesUseCase"),
+        .package(path: "../../UseCases/GetFavoritesGamesUseCase"),
+        .package(path: "../../UseCases/AddFavoriteGameUseCase"),
+        .package(path: "../../UseCases/RemoveFavoriteGameUseCase"),
     ],
     targets: [
         .target(
@@ -24,7 +26,9 @@ let package = Package(
             dependencies: [
                 "DIContainer",
                 "Extensions",
-                "GetGamesUseCase"
+                "GetFavoritesGamesUseCase",
+                "AddFavoriteGameUseCase",
+                "RemoveFavoriteGameUseCase",
             ]),
         .testTarget(
             name: "FavoritesSceneTests",

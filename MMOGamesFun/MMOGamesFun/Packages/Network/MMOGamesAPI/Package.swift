@@ -6,12 +6,13 @@ import PackageDescription
 let package = Package(
     name: "MMOGamesAPI",
     platforms: [
-        .iOS(.v15)
+        .iOS(.v15),
     ],
     products: [
         .library(
             name: "MMOGamesAPI",
-            targets: ["MMOGamesAPI"]),
+            targets: ["MMOGamesAPI"]
+        ),
     ],
     dependencies: [
         .package(path: "../../Common/DIContainer"),
@@ -19,9 +20,17 @@ let package = Package(
     targets: [
         .target(
             name: "MMOGamesAPI",
-            dependencies: ["DIContainer"]),
+            dependencies: ["DIContainer"],
+            resources:
+            [
+                .copy("Resources/games.json")
+            ]
+        ),
         .testTarget(
             name: "MMOGamesAPITests",
-            dependencies: ["MMOGamesAPI"]),
+            dependencies: ["MMOGamesAPI"]
+        ),
     ]
 )
+
+// resources: [.copy("Resources")]

@@ -4,14 +4,14 @@
 import PackageDescription
 
 let package = Package(
-    name: "GetGamesUseCase",
+    name: "GetFavoritesGamesUseCase",
     platforms: [
         .iOS(.v15),
     ],
     products: [
         .library(
-            name: "GetGamesUseCase",
-            targets: ["GetGamesUseCase"]),
+            name: "GetFavoritesGamesUseCase",
+            targets: ["GetFavoritesGamesUseCase"]),
     ],
     dependencies: [
         .package(path: "../../Common/DIContainer"),
@@ -20,13 +20,14 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "GetGamesUseCase",
+            name: "GetFavoritesGamesUseCase",
             dependencies: [
                 "DIContainer",
                 "GamesRepository",
                 "FavoritesRepository",
             ]),
         .testTarget(
-            name: "GetGamesUseCaseTests",
-            dependencies: ["GetGamesUseCase"]),
-    ])
+            name: "GetFavoritesGamesUseCaseTests",
+            dependencies: ["GetFavoritesGamesUseCase"]),
+    ]
+)

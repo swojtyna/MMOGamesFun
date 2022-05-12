@@ -23,7 +23,6 @@ public struct GameElement: Codable {
 }
 
 public protocol MMOGamesAPIProtocol {
-    func fetchGames() async throws -> [GameElement]
     func games() -> AnyPublisher<[GameElement], Error>
 }
 
@@ -33,17 +32,22 @@ public struct MMOGamesAPI: MMOGamesAPIProtocol {
 
     public init() {}
 
-    public func fetchGames() async throws -> [GameElement] {
-        let (data, _) = try await session.data(from: url)
+//    public func games() -> AnyPublisher<[GameElement], Error> {
+//        URLSession.shared.dataTaskPublisher(for: url)
+//            .mapError { $0 as Error }
+//            .map { $0.data }
+//            .decode(type: [GameElement].self, decoder: JSONDecoder())
+//            .eraseToAnyPublisher()
+//    }
 
-        return try JSONDecoder().decode([GameElement].self, from: data)
-    }
+    // MOCK for testing offline ;]
+    @JsonLoader("games")
+    var gamesElements: [GameElement]
 
     public func games() -> AnyPublisher<[GameElement], Error> {
-        URLSession.shared.dataTaskPublisher(for: url)
-            .mapError { $0 as Error }
-            .map { $0.data }
-            .decode(type: [GameElement].self, decoder: JSONDecoder())
+        gamesElements.publisher
+            .collect()
+            .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
     }
 }

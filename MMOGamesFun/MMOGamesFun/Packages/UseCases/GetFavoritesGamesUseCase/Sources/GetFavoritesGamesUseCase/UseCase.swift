@@ -13,7 +13,7 @@ public final class UseCase: UseCaseProtocol {
 
     public init() {}
 
-    private lazy var favoritesGames = favoritesRepository
+    lazy var favoritesGames = favoritesRepository
         .gamesIds
         .setFailureType(to: Error.self)
         .eraseToAnyPublisher()
@@ -21,12 +21,19 @@ public final class UseCase: UseCaseProtocol {
     public func execute() -> AnyPublisher<[Game], Error> {
         gameRepository.games
             .combineLatest(favoritesGames)
-            .compactMap { repoGames, repoGamesIds in
+            .map { repoGames, repoGamesIds in
                 let useCaseGames: [Game] = repoGames.map { game in
                     var useCaseGame = Game(gameRepo: game)
                     useCaseGame.isFavorite = repoGamesIds.contains(game.id)
+
+                    if !useCaseGame.isFavorite {
+                        return nil
+                    }
+
                     return useCaseGame
                 }
+                .compactMap { $0 }
+
                 return useCaseGames
             }
             .eraseToAnyPublisher()

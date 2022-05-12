@@ -9,17 +9,20 @@ import Combine
 import DIContainer
 import UIKit
 
-public final class ViewController: UIViewController {
+public final class ViewController: UITableViewController {
     @LazyInjected
     var viewModel: ViewModelProtocol
 
+    private lazy var adapter = Adapter()
     private var subscriptions = Set<AnyCancellable>()
 
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .white
-        title = "Favorites"
+        setupTableView()
+        setupAdapter()
+
+        title = "Favorites list"
     }
 
     override public func viewWillAppear(_ animated: Bool) {
@@ -35,12 +38,26 @@ public final class ViewController: UIViewController {
             .store(in: &subscriptions)
     }
 
+    private func setupTableView() {
+        tableView.delegate = adapter
+        tableView.dataSource = adapter
+        tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .none
+
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Adapter.Constants.gameCellIdentifier)
+    }
+
+    private func setupAdapter() {
+        adapter.tableView = tableView
+    }
+
     private func update(accordingTo state: State) {
         switch state {
         case .populated(let displayRows):
-            print("populated \(displayRows)")
+            adapter.update(rows: displayRows)
         case .empty:
             print("empty")
+            adapter.update(rows: [])
         case .error:
             print("error")
         }

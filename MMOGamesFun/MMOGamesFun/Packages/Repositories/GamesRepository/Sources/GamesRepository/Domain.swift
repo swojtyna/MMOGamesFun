@@ -22,8 +22,6 @@ public struct Game {
     public let profileURL: String?
 }
 
-public typealias Completion = (Result<[Game], Error>) -> Void
-
 public protocol RepositoryProtocol {
     var games: AnyPublisher<[Game], Error> { get }
 }

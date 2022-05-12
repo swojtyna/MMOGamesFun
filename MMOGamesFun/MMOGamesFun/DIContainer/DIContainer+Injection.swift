@@ -5,21 +5,25 @@
 //  Created by Sebastian Wojtyna on 03/05/2022.
 //
 
+import AddFavoriteGameUseCase
 import DashboardCoordinator
+import DashboardCoordinatorDomain
 import DashboardScene
 import DashboardTabCoordinator
-import DashboardCoordinatorDomain
 import DIContainer
 import FavoritesCoordinator
+import FavoritesRepository
 import FavoritesScene
 import FavoritesTabCoordinator
 import Foundation
+import GamesListCoordinator
 import GamesListScene
 import GamesRepository
-import GamesListCoordinator
+import GetFavoritesGamesUseCase
 import GetGamesUseCase
 import HomeTabBarCoordinator
 import MMOGamesAPI
+import RemoveFavoriteGameUseCase
 
 final class DIContainerInjection {
     static func registerAll() {
@@ -70,16 +74,31 @@ final class DIContainerInjection {
     }
 
     static func registerUseCases() {
-        DIContainer.register(type: UseCaseProtocol.self) { _ in
-            UseCase()
+        DIContainer.register(type: GetGamesUseCase.UseCaseProtocol.self) { _ in
+            GetGamesUseCase.UseCase()
+        }
+
+        DIContainer.register(type: AddFavoriteGameUseCase.UseCaseProtocol.self) { _ in
+            AddFavoriteGameUseCase.UseCase()
+        }
+
+        DIContainer.register(type: RemoveFavoriteGameUseCase.UseCaseProtocol.self) { _ in
+            RemoveFavoriteGameUseCase.UseCase()
+        }
+
+        DIContainer.register(type: GetFavoritesGamesUseCase.UseCaseProtocol.self) { _ in
+            GetFavoritesGamesUseCase.UseCase()
         }
     }
 
     static func registerRepositories() {
-        DIContainer.register(type: RepositoryProtocol.self) { _ in
-            Repository()
-        }
-        // add scope
+        DIContainer.register(type: GamesRepository.RepositoryProtocol.self, object: { _ in
+            GamesRepository.Repository()
+        }, scope: .application)
+
+        DIContainer.register(type: FavoritesRepository.RepositoryProtocol.self, object: { _ in
+            FavoritesRepository.Repository()
+        }, scope: .application)
     }
 
     static func registerNetworksLayer() {
