@@ -14,10 +14,10 @@ public final class ViewController: UITableViewController {
     var viewModel: ViewModelProtocol
 
     private lazy var adapter = Adapter()
-    private var subscriptions = Set<AnyCancellable>()
 
     override public func viewDidLoad() {
         super.viewDidLoad()
+        bind()
 
         setupTableView()
         setupAdapter()
@@ -25,17 +25,18 @@ public final class ViewController: UITableViewController {
         title = "Favorites list"
     }
 
-    override public func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    private func bind() {
+        let input = Input()
+        let output = viewModel.bind(input: input)
 
-        viewModel.state
+        output.displayRows
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: {
                 print("completion \($0)")
-            }, receiveValue: { [unowned self] state in
-                self.update(accordingTo: state)
+            }, receiveValue: { [adapter] displayRows in
+                adapter.update(rows: displayRows)
             })
-            .store(in: &subscriptions)
+            .store(in: &viewModel.subscriptions)
     }
 
     private func setupTableView() {
@@ -49,17 +50,5 @@ public final class ViewController: UITableViewController {
 
     private func setupAdapter() {
         adapter.tableView = tableView
-    }
-
-    private func update(accordingTo state: State) {
-        switch state {
-        case .populated(let displayRows):
-            adapter.update(rows: displayRows)
-        case .empty:
-            print("empty")
-            adapter.update(rows: [])
-        case .error:
-            print("error")
-        }
     }
 }

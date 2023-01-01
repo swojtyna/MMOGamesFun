@@ -51,6 +51,6 @@ final class Adapter: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        rows[safe: indexPath.row]?.tapRowAction?()
+        rows[safe: indexPath.row]?.rowTapped?()
     }
 }
