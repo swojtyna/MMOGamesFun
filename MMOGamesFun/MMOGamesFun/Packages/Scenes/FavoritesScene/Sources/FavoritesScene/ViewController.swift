@@ -17,6 +17,7 @@ public final class ViewController: UITableViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
+        
         bind()
 
         setupTableView()

@@ -8,21 +8,25 @@
 import Combine
 import Foundation
 
+public enum Route {}
+
+public struct Input {}
+
+public struct Output {
+    var displayRows: AnyPublisher<[DisplayRow], Never>
+    var error: AnyPublisher<Error, Never>
+}
+
 public struct DisplayRow {
     public let title: String
     public var subtitle: String?
     public var isFavorite: Bool
-    public var tapRowAction: DisplayRowAction?
+    public var rowTapped: (() -> Void)?
 }
-
-public enum State {
-    case populated([DisplayRow])
-    case empty
-    case error(Error)
-}
-
-public typealias DisplayRowAction = () -> Void
 
 public protocol ViewModelProtocol {
-    var state: AnyPublisher<State, Never> { get }
+    var router: AnyPublisher<Route, Error> { get }
+    var subscriptions: Set<AnyCancellable> { set get }
+
+    func bind(input: Input) -> Output
 }
