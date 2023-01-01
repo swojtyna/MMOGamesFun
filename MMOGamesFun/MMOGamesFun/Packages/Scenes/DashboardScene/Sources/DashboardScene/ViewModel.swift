@@ -5,20 +5,30 @@
 //  Created by Sebastian Wojtyna on 08/05/2022.
 //
 
-import DashboardCoordinatorDomain
+import Combine
 import DIContainer
 import Foundation
-import GetGamesUseCase
 
 public final class ViewModel: ViewModelProtocol {
-    @LazyInjected
-    var getListUseCase: UseCaseProtocol
+    public var router: AnyPublisher<Route, Error> { routerPassthroughSubject.eraseToAnyPublisher() }
+    private var routerPassthroughSubject = PassthroughSubject<Route, Error>()
 
-    public var coordinator: DashboardCoordinatorDomain.CoordinatorProtocol!
+    private var subscriptions = Set<AnyCancellable>()
 
     public init() {}
+    
+    public func bind(input: Input) -> Output {
+        input.gameListTapped
+            .map { _ in Route.gameList }
+            .sink(receiveValue: { [routerPassthroughSubject] route
+                in routerPassthroughSubject.send(route)
+            })
+            .store(in: &subscriptions)
 
-    public func showGamesList() {
-        coordinator.showGameList()
+        let releaseDate = Timer.TimerPublisher(interval: 1.0, runLoop: .main, mode: .default)
+            .autoconnect()
+            .eraseToAnyPublisher()
+
+        return Output(releaseDate: releaseDate)
     }
 }

@@ -16,7 +16,7 @@ let package = Package(
     dependencies: [
         .package(path: "../../Common/DIContainer"),
         .package(path: "../../Common/Extensions"),
-        .package(path: "../../Coordinators/DashboardCoordinatorDomain"),
+        .package(path: "../../Coordinators/DashboardCoordinator"),
     ],
     targets: [
         .target(
@@ -24,7 +24,7 @@ let package = Package(
             dependencies: [
                 "DIContainer",
                 "Extensions",
-                "DashboardCoordinatorDomain",
+                "DashboardCoordinator"
             ]),
         .testTarget(
             name: "DashboardTabCoordinatorTests",

@@ -7,7 +7,6 @@
 
 import AddFavoriteGameUseCase
 import DashboardCoordinator
-import DashboardCoordinatorDomain
 import DashboardScene
 import DashboardTabCoordinator
 import DIContainer
@@ -43,7 +42,7 @@ final class DIContainerInjection {
             DashboardTabCoordinator.Coordinator()
         }
 
-        DIContainer.register(type: DashboardCoordinatorDomain.CoordinatorProtocol.self) { _ in
+        DIContainer.register(type: DashboardCoordinator.CoordinatorProtocol.self) { _ in
             DashboardCoordinator.Coordinator()
         }
 
@@ -64,9 +63,6 @@ final class DIContainerInjection {
         DIContainer.register(type: GamesListScene.ViewModelProtocol.self) { _ in
             GamesListScene.ViewModel()
         }
-
-        // SWiftUI Solution ;/
-        DIContainer.register(object: ({ _ in DashboardScene.ViewModel() }), scope: .shared)
 
         DIContainer.register(type: FavoritesScene.ViewModelProtocol.self) { _ in
             FavoritesScene.ViewModel()

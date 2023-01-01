@@ -8,28 +8,38 @@
 import GamesListCoordinator
 import UIKit
 import DIContainer
-import DashboardCoordinatorDomain
 import DashboardScene
 import SwiftUI
+import Combine
 
-public final class Coordinator: DashboardCoordinatorDomain.CoordinatorProtocol {
+public final class Coordinator: CoordinatorProtocol {
     public weak var navigationController: UINavigationController? // It shouldn't know about it
 
     @LazyInjected
     var gamesListCoordinator: GamesListCoordinator.CoordinatorProtocol
 
+    private var subscriptions = Set<AnyCancellable>()
+
     public init() {}
 
     public func start() -> UIViewController {
-        let dashboardView = DashboardView()
+        let viewModel = ViewModel()
+        let dashboardView = DashboardView(viewModel: viewModel)
         let viewController = UIHostingController(rootView: dashboardView)
-        dashboardView.viewModel.coordinator = self
+
+        viewModel.router
+            .map(handleRoute)
+            .sink(receiveCompletion: {_ in }, receiveValue: {})
+            .store(in: &subscriptions)
 
         return viewController
     }
 
-    public func showGameList() {
-        let gamesListController = gamesListCoordinator.start()
-        navigationController?.pushViewController(gamesListController, animated: true) // this should be delegated to DashboardTabCoordinator
+    public func handleRoute(_ route: Route) {
+        switch route {
+        case .gameList:
+            let gamesListController = gamesListCoordinator.start()
+            navigationController?.pushViewController(gamesListController, animated: true) // this should be delegated to DashboardTabCoordinator
+        }
     }
 }

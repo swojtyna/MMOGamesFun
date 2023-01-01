@@ -59,7 +59,6 @@
 		A20CE3F12823C29B001071E3 /* GetGamesUseCase */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GetGamesUseCase; sourceTree = "<group>"; };
 		A20CE3F22823C2B8001071E3 /* GamesListScene */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GamesListScene; sourceTree = "<group>"; };
 		A21107C02823CDA4009C6852 /* Extensions */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Extensions; sourceTree = "<group>"; };
-		A228D4E32829334A00B1C858 /* DashboardCoordinatorDomain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DashboardCoordinatorDomain; sourceTree = "<group>"; };
 		A29DCDA62829092A004C95E6 /* HomeTabBarCoordinator */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = HomeTabBarCoordinator; sourceTree = "<group>"; };
 		A29DCDA72829092A004C95E6 /* DashboardCoordinator */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DashboardCoordinator; sourceTree = "<group>"; };
 		A29DCDA82829092A004C95E6 /* DashboardTabCoordinator */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DashboardTabCoordinator; sourceTree = "<group>"; };
@@ -164,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				A29DCDA72829092A004C95E6 /* DashboardCoordinator */,
-				A228D4E32829334A00B1C858 /* DashboardCoordinatorDomain */,
 				A29DCDA82829092A004C95E6 /* DashboardTabCoordinator */,
 				A29DCDA92829092A004C95E6 /* FavoritesCoordinator */,
 				A29DCDB528290FB1004C95E6 /* FavoritesTabCoordinator */,

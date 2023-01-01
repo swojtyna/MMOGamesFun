@@ -7,23 +7,37 @@
 
 import DIContainer
 import SwiftUI
+import Combine
 
 public struct DashboardView: View {
-    @InjectedObject
     public var viewModel: ViewModel
+    public var output: Output
 
-    public init() {}
+    // input
+    private let gameListTapped = PassthroughSubject<Void, Never>()
+
+    // connection
+    @State var releaseDate: Date = Date()
+
+    // Based on: https://stackoverflow.com/a/60411806
+    // How to resign of viewmodel injection here?
+    public init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+
+        let input = Input(gameListTapped: gameListTapped.eraseToAnyPublisher())
+        output = viewModel.bind(input: input)
+    }
+
     public var body: some View {
         VStack {
-            HStack {
+            VStack {
                 Text("🎮")
-                Text("Dashboard")
-                    .font(.largeTitle)
+                Text("Dashboard v 1.0. Relase date: \(releaseDate.formatted(date: .omitted, time: .standard))")
             }
 
             Button(action: {
                 print("GameList tapped!")
-                viewModel.showGamesList()
+                gameListTapped.send()
             }) {
                 HStack {
                     Image(systemName: "gamecontroller")
@@ -38,5 +52,8 @@ public struct DashboardView: View {
                 .cornerRadius(40)
             }
         }
+        .onReceive(output.releaseDate, perform: { releaseDate in
+            self.releaseDate = releaseDate
+        })
     }
 }

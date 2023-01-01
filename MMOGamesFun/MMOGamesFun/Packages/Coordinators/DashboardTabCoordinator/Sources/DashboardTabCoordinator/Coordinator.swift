@@ -5,13 +5,13 @@
 //  Created by Sebastian Wojtyna on 09/05/2022.
 //
 
-import DashboardCoordinatorDomain
+import DashboardCoordinator
 import DIContainer
 import UIKit
 
 public final class Coordinator: CoordinatorProtocol {
     @LazyInjected
-    var dashboardCoordinator: DashboardCoordinatorDomain.CoordinatorProtocol
+    var dashboardCoordinator: DashboardCoordinator.CoordinatorProtocol
 
     public init() {}
 

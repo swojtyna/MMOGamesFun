@@ -17,7 +17,6 @@ let package = Package(
         .package(path: "../../Common/DIContainer"),
         .package(path: "../../Common/Extensions"),
         .package(path: "../../Coordinators/GamesListCoordinator"),
-        .package(path: "../../Coordinators/DashboardCoordinatorDomain"),
         .package(path: "../../Scenes/DashboardScene"),
 
     ],
@@ -28,7 +27,6 @@ let package = Package(
                 "DIContainer",
                 "Extensions",
                 "GamesListCoordinator",
-                "DashboardCoordinatorDomain",
                 "DashboardScene",
             ]),
         .testTarget(
