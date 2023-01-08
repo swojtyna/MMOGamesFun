@@ -8,49 +8,74 @@
 import Extensions
 import UIKit
 
-// TODO:
-// Change it to newer approach
-// https://gist.github.com/emptyfuel/77d1154477789f160379d605678e62e6
-final class Adapter: NSObject, UITableViewDelegate, UITableViewDataSource {
+final class Adapter: NSObject {
     enum Constants {
         static let gameCellIdentifier = "GameCellIdentifier"
     }
 
-    weak var tableView: UITableView?
-    private var rows: [DisplayRow] = []
+    typealias TableDataSource = UITableViewDiffableDataSource<Int, AnyHashable>
+    typealias DataSourceSnapshot = NSDiffableDataSourceSnapshot<Int, AnyHashable>
+
+    private weak var tableView: UITableView!
+    private var dataSource: TableDataSource!
+
+    init(tableView: UITableView) {
+        super.init()
+
+        self.tableView = tableView
+        dataSource = makeDataSource()
+    }
 
     func update(rows: [DisplayRow]) {
-        self.rows = rows
-        tableView?.reloadData()
-    }
+        var snapshot = DataSourceSnapshot()
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        rows.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.gameCellIdentifier, for: indexPath)
-        cell.selectionStyle = .none
-
-        if let row = rows[safe: indexPath.row] {
-            var content = cell.defaultContentConfiguration()
-
-            if row.isFavorite {
-                content.image = UIImage(systemName: "suit.heart.fill")
-            } else {
-                content.image = UIImage(systemName: "heart")
-            }
-
-            content.text = row.title
-            content.secondaryText = row.subtitle
-
-            cell.contentConfiguration = content
+        defer {
+            dataSource.apply(snapshot)
         }
 
-        return cell
+        if rows.isEmpty {
+            snapshot.appendSections([0])
+            snapshot.appendItems([EmptyRow(emptyMessage: "We're sorry! You don't have any favorites games!")])
+            return
+        }
+
+        snapshot.appendSections([0])
+        snapshot.appendItems(rows)
     }
 
+    private func makeDataSource() -> TableDataSource {
+        TableDataSource(tableView: tableView, cellProvider: { tableView, indexPath, item in
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.gameCellIdentifier, for: indexPath)
+            cell.selectionStyle = .none
+            var content = cell.defaultContentConfiguration()
+
+            var image: UIImage?
+            var text: String?
+            var secondaryText: String?
+
+            if let displayRow = item as? DisplayRow {
+                image = displayRow.isFavorite ? UIImage(systemName: "suit.heart.fill") : UIImage(systemName: "heart")
+                text = displayRow.title
+                secondaryText = displayRow.subtitle
+            } else if let emptyRow = item as? EmptyRow {
+                image = UIImage(systemName: "exclamationmark.circle")
+                text = emptyRow.emptyMessage
+                secondaryText = nil
+            }
+
+            content.image = image
+            content.text = text
+            content.secondaryText = secondaryText
+
+            cell.contentConfiguration = content
+
+            return cell
+        })
+    }
+}
+
+extension Adapter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        rows[safe: indexPath.row]?.rowTapped?()
+        (dataSource.itemIdentifier(for: indexPath) as? DisplayRow)?.rowTapped?()
     }
 }

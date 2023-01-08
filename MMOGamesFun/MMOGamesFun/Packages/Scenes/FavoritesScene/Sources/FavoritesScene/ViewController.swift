@@ -13,7 +13,7 @@ public final class ViewController: UITableViewController {
     @LazyInjected
     var viewModel: ViewModelProtocol
 
-    private lazy var adapter = Adapter()
+    private lazy var adapter = Adapter(tableView: tableView)
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,6 @@ public final class ViewController: UITableViewController {
         bind()
 
         setupTableView()
-        setupAdapter()
 
         title = "Favorites list"
     }
@@ -42,14 +41,9 @@ public final class ViewController: UITableViewController {
 
     private func setupTableView() {
         tableView.delegate = adapter
-        tableView.dataSource = adapter
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Adapter.Constants.gameCellIdentifier)
-    }
-
-    private func setupAdapter() {
-        adapter.tableView = tableView
     }
 }
