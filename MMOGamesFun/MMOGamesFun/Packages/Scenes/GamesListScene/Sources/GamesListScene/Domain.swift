@@ -10,7 +10,9 @@ import Foundation
 
 public enum Route {}
 
-public struct Input {}
+public struct Input {
+    var viewDidLoadTrigger: AnyPublisher<Void, Never>
+}
 
 public struct Output {
     var displayRows: AnyPublisher<[DisplayRow], Never>
@@ -38,8 +40,12 @@ extension DisplayRow: Hashable {
     }
 }
 
-struct EmptyRow: Hashable {
-    let emptyMessage: String
+struct EmptyDisplayData: Hashable {
+    let message: String
+}
+
+struct ErrorDisplayData: Hashable {
+    let message: String
 }
 
 public protocol ViewModelProtocol {

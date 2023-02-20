@@ -7,6 +7,7 @@
 
 import AddFavoriteGameUseCase
 import Combine
+import CombineExt
 import DIContainer
 import Foundation
 import GetGamesUseCase
@@ -14,7 +15,7 @@ import RemoveFavoriteGameUseCase
 
 public final class ViewModel: ViewModelProtocol {
     public var router: AnyPublisher<Route, Error> { routerPassthroughSubject.eraseToAnyPublisher() }
-    private var routerPassthroughSubject = PassthroughSubject<Route, Error>()
+    private let routerPassthroughSubject = PassthroughSubject<Route, Error>()
 
     public var subscriptions = Set<AnyCancellable>()
 
@@ -30,48 +31,50 @@ public final class ViewModel: ViewModelProtocol {
     public init() {}
 
     public func bind(input: Input) -> Output {
-        let getList = getListUseCase.execute()
-
-        let displayRows: AnyPublisher<[DisplayRow], Never> = getList
-            .compactMap { useCaseGames in
-                useCaseGames.map { [unowned self] game in
-                    let rowAction: () -> Void = { [unowned self] in
-                        if game.isFavorite {
-                            removeFromFavorite(gameId: game.id)
-                        } else {
-                            addToFavorite(gameId: game.id)
-                        }
-                    }
-
-                    return DisplayRow(useCaseGame: game, rowTapped: rowAction)
-                }
+        let getList = input.viewDidLoadTrigger
+            .flatMapLatest { _ -> AnyPublisher<Event<[Game], Error>, Never> in
+                self.getListUseCase
+                    .execute()
+                    .materialize()
+                    .eraseToAnyPublisher()
             }
-            .replaceError(with: [])
+            .share()
             .eraseToAnyPublisher()
 
-        let getError = PassthroughSubject<Error, Never>()
+        let displayRows: AnyPublisher<[DisplayRow], Never> = getList
+            .values()
+            .map { self.makeDisplayRows(from: $0) }
+            .eraseToAnyPublisher()
 
-        getList
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .failure(let error):
-                    getError.send(error)
-                case .finished: break
-                }
-            }, receiveValue: { _ in })
-            .store(in: &subscriptions)
+        let error = getList
+            .failures()
 
-        return Output(displayRows: displayRows, error: getError.eraseToAnyPublisher())
+        return Output(displayRows: displayRows, error: error)
     }
 }
 
 private extension ViewModel {
-    func addToFavorite(gameId: AddFavoriteGameUseCase.GameId) {
-        addFavoriteGameUseCase.execute(gameId: gameId)
+    func makeDisplayRows(from games: [Game]) -> [DisplayRow] {
+        return games.map { [weak self] game in
+            DisplayRow(
+                useCaseGame: game,
+                rowTapped: self.map { $0.makeRowAction(game: game) }
+            )
+        }
     }
 
-    func removeFromFavorite(gameId: RemoveFavoriteGameUseCase.GameId) {
-        removeFavoriteGameUseCase.execute(gameId: gameId)
+    func makeRowAction(game: Game) -> (() -> Void) {
+        if game.isFavorite {
+            return { [weak self] in
+                self?.removeFavoriteGameUseCase.execute(gameId: game.id)
+
+            }
+        } else {
+            return { [weak self] in
+                self?.addFavoriteGameUseCase.execute(gameId: game.id)
+                
+            }
+        }
     }
 }
 
@@ -83,4 +86,3 @@ private extension DisplayRow {
         self.rowTapped = rowTapped
     }
 }
-

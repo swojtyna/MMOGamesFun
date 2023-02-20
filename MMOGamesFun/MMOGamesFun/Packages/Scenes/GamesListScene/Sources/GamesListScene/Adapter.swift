@@ -26,16 +26,16 @@ final class Adapter: NSObject {
         dataSource = makeDataSource()
     }
 
-    func update(rows: [DisplayRow]) {
+    func update(rows: [AnyHashable]) {
         var snapshot = DataSourceSnapshot()
 
         defer {
-            dataSource.apply(snapshot)
+            dataSource.apply(snapshot, animatingDifferences: false)
         }
 
         if rows.isEmpty {
             snapshot.appendSections([0])
-            snapshot.appendItems([EmptyRow(emptyMessage: "We're sorry! Try again later!")])
+            snapshot.appendItems([EmptyDisplayData(message: "We're sorry! Try again later!")])
             return
         }
 
@@ -58,9 +58,13 @@ final class Adapter: NSObject {
                 image = displayRow.isFavorite ? UIImage(systemName: "suit.heart.fill") : UIImage(systemName: "heart")
                 text = displayRow.title
                 secondaryText = displayRow.subtitle
-            } else if let emptyRow = item as? EmptyRow {
+            } else if let emptyRow = item as? EmptyDisplayData {
                 image = UIImage(systemName: "exclamationmark.circle")
-                text = emptyRow.emptyMessage
+                text = emptyRow.message
+                secondaryText = nil
+            } else if let errorRow = item as? ErrorDisplayData {
+                image = UIImage(systemName: "wrongwaysign")
+                text = errorRow.message
                 secondaryText = nil
             }
 

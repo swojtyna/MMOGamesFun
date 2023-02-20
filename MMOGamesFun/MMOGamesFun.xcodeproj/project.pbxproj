@@ -25,8 +25,6 @@
 		A2E88728282187D9001D8FB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2E88727282187D9001D8FB6 /* Assets.xcassets */; };
 		A2E8872B282187D9001D8FB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2E88729282187D9001D8FB6 /* LaunchScreen.storyboard */; };
 		A2E88736282187D9001D8FB6 /* MMOGamesFunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E88735282187D9001D8FB6 /* MMOGamesFunTests.swift */; };
-		A2E88740282187D9001D8FB6 /* MMOGamesFunUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E8873F282187D9001D8FB6 /* MMOGamesFunUITests.swift */; };
-		A2E88742282187D9001D8FB6 /* MMOGamesFunUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E88741282187D9001D8FB6 /* MMOGamesFunUITestsLaunchTests.swift */; };
 		A2E8875128218D46001D8FB6 /* MMOGamesAPI in Resources */ = {isa = PBXBuildFile; fileRef = A2E8875028218D46001D8FB6 /* MMOGamesAPI */; };
 		A2E8875728218DF3001D8FB6 /* DIContainer+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E8875628218DF3001D8FB6 /* DIContainer+Injection.swift */; };
 		A2E8875E2821922D001D8FB6 /* DIContainer in Frameworks */ = {isa = PBXBuildFile; productRef = A2E8875D2821922D001D8FB6 /* DIContainer */; };
@@ -37,13 +35,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		A2E88732282187D9001D8FB6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A2E88713282187D8001D8FB6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A2E8871A282187D8001D8FB6;
-			remoteInfo = MMOGamesFun;
-		};
-		A2E8873C282187D9001D8FB6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A2E88713282187D8001D8FB6 /* Project object */;
 			proxyType = 1;
@@ -75,7 +66,6 @@
 		A2E8872C282187D9001D8FB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2E88731282187D9001D8FB6 /* MMOGamesFunTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MMOGamesFunTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2E88735282187D9001D8FB6 /* MMOGamesFunTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMOGamesFunTests.swift; sourceTree = "<group>"; };
-		A2E8873B282187D9001D8FB6 /* MMOGamesFunUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MMOGamesFunUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2E8873F282187D9001D8FB6 /* MMOGamesFunUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMOGamesFunUITests.swift; sourceTree = "<group>"; };
 		A2E88741282187D9001D8FB6 /* MMOGamesFunUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMOGamesFunUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A2E8875028218D46001D8FB6 /* MMOGamesAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MMOGamesAPI; sourceTree = "<group>"; };
@@ -112,13 +102,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A2E8872E282187D9001D8FB6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A2E88738282187D9001D8FB6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -188,7 +171,6 @@
 			children = (
 				A2E8871B282187D8001D8FB6 /* MMOGamesFun.app */,
 				A2E88731282187D9001D8FB6 /* MMOGamesFunTests.xctest */,
-				A2E8873B282187D9001D8FB6 /* MMOGamesFunUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -326,24 +308,6 @@
 			productReference = A2E88731282187D9001D8FB6 /* MMOGamesFunTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A2E8873A282187D9001D8FB6 /* MMOGamesFunUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A2E8874B282187D9001D8FB6 /* Build configuration list for PBXNativeTarget "MMOGamesFunUITests" */;
-			buildPhases = (
-				A2E88737282187D9001D8FB6 /* Sources */,
-				A2E88738282187D9001D8FB6 /* Frameworks */,
-				A2E88739282187D9001D8FB6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A2E8873D282187D9001D8FB6 /* PBXTargetDependency */,
-			);
-			name = MMOGamesFunUITests;
-			productName = MMOGamesFunUITests;
-			productReference = A2E8873B282187D9001D8FB6 /* MMOGamesFunUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -358,10 +322,6 @@
 						CreatedOnToolsVersion = 13.3;
 					};
 					A2E88730282187D9001D8FB6 = {
-						CreatedOnToolsVersion = 13.3;
-						TestTargetID = A2E8871A282187D8001D8FB6;
-					};
-					A2E8873A282187D9001D8FB6 = {
 						CreatedOnToolsVersion = 13.3;
 						TestTargetID = A2E8871A282187D8001D8FB6;
 					};
@@ -382,7 +342,6 @@
 			targets = (
 				A2E8871A282187D8001D8FB6 /* MMOGamesFun */,
 				A2E88730282187D9001D8FB6 /* MMOGamesFunTests */,
-				A2E8873A282187D9001D8FB6 /* MMOGamesFunUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -399,13 +358,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A2E8872F282187D9001D8FB6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A2E88739282187D9001D8FB6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -432,15 +384,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A2E88737282187D9001D8FB6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A2E88742282187D9001D8FB6 /* MMOGamesFunUITestsLaunchTests.swift in Sources */,
-				A2E88740282187D9001D8FB6 /* MMOGamesFunUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -448,11 +391,6 @@
 			isa = PBXTargetDependency;
 			target = A2E8871A282187D8001D8FB6 /* MMOGamesFun */;
 			targetProxy = A2E88732282187D9001D8FB6 /* PBXContainerItemProxy */;
-		};
-		A2E8873D282187D9001D8FB6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A2E8871A282187D8001D8FB6 /* MMOGamesFun */;
-			targetProxy = A2E8873C282187D9001D8FB6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -601,7 +539,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ailleron.livebank.MMOGamesFun;
+				PRODUCT_BUNDLE_IDENTIFIER = fun.fun.more.fun.MMOGamesFun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -628,7 +566,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ailleron.livebank.MMOGamesFun;
+				PRODUCT_BUNDLE_IDENTIFIER = fun.fun.more.fun.MMOGamesFun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -676,42 +614,6 @@
 			};
 			name = Release;
 		};
-		A2E8874C282187D9001D8FB6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2NLEQZCTKJ;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ailleron.livebank.MMOGamesFunUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MMOGamesFun;
-			};
-			name = Debug;
-		};
-		A2E8874D282187D9001D8FB6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2NLEQZCTKJ;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ailleron.livebank.MMOGamesFunUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MMOGamesFun;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -738,15 +640,6 @@
 			buildConfigurations = (
 				A2E88749282187D9001D8FB6 /* Debug */,
 				A2E8874A282187D9001D8FB6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A2E8874B282187D9001D8FB6 /* Build configuration list for PBXNativeTarget "MMOGamesFunUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A2E8874C282187D9001D8FB6 /* Debug */,
-				A2E8874D282187D9001D8FB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -30,6 +30,11 @@ public final class UseCase: UseCaseProtocol {
                 return useCaseGames
             }
             .eraseToAnyPublisher()
+
+//        struct TestError512321: Error { }
+//        let testError2 = TestError512321()
+//
+//        return Fail(error: testError2).eraseToAnyPublisher()
     }
 }
 

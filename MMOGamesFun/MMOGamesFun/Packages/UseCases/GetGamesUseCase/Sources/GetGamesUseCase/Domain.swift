@@ -5,8 +5,8 @@
 //  Created by Sebastian Wojtyna on 05/05/2022.
 //
 
-import Foundation
 import Combine
+import Foundation
 
 public struct Game {
     public let id: Int
@@ -22,6 +22,34 @@ public struct Game {
     public let profileURL: String?
 
     public var isFavorite: Bool = false
+
+    public init(
+        id: Int,
+        title: String,
+        thumbnail: String,
+        shortDescription: String? = nil,
+        gameURL: String? = nil,
+        genre: String,
+        platform: String,
+        publisher: String,
+        developer: String,
+        releaseDate: String? = nil,
+        profileURL: String? = nil,
+        isFavorite: Bool = false
+    ) {
+        self.id = id
+        self.title = title
+        self.thumbnail = thumbnail
+        self.shortDescription = shortDescription
+        self.gameURL = gameURL
+        self.genre = genre
+        self.platform = platform
+        self.publisher = publisher
+        self.developer = developer
+        self.releaseDate = releaseDate
+        self.profileURL = profileURL
+        self.isFavorite = isFavorite
+    }
 }
 
 public protocol UseCaseProtocol {

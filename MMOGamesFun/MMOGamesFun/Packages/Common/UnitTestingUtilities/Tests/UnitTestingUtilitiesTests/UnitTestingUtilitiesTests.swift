@@ -1,11 +1,11 @@
 import XCTest
-@testable import GamesListScene
+@testable import UnitTestingUtilities
 
-final class GamesListSceneTests: XCTestCase {
+final class UnitTestingUtilitiesTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(GamesListScene().text, "Hello, World!")
+        XCTAssertEqual(UnitTestingUtilities().text, "Hello, World!")
     }
 }

@@ -13,30 +13,34 @@ public final class ViewController: UITableViewController {
     @LazyInjected
     var viewModel: ViewModelProtocol
 
+    private let viewDidLoadSubject = PassthroughSubject<Void, Never>()
     private lazy var adapter = Adapter(tableView: tableView)
-
     private var subscriptions = Set<AnyCancellable>()
 
     override public func viewDidLoad() {
         super.viewDidLoad()
 
         bind()
-
         setupTableView()
 
         title = "Games list"
+        viewDidLoadSubject.send(())
     }
 
     private func bind() {
-        let input = Input()
+        let input = Input(viewDidLoadTrigger: viewDidLoadSubject.eraseToAnyPublisher())
         let output = viewModel.bind(input: input)
 
         output.displayRows
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: {
-                print("completion \($0)")
-            }, receiveValue: { [adapter] displayRows in
+            .sink(receiveValue: { [adapter] displayRows in
                 adapter.update(rows: displayRows)
+            })
+            .store(in: &viewModel.subscriptions)
+
+        output.error
+            .sink(receiveValue: { [adapter] _ in
+                adapter.update(rows: [ErrorDisplayData(message: "Oops something went wrong 💩")])
             })
             .store(in: &viewModel.subscriptions)
     }

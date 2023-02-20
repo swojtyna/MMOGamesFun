@@ -16,9 +16,11 @@ let package = Package(
     dependencies: [
         .package(path: "../../Common/DIContainer"),
         .package(path: "../../Common/Extensions"),
+        .package(path: "../../Common/UnitTestingUtilities"),
         .package(path: "../../UseCases/GetGamesUseCase"),
         .package(path: "../../UseCases/AddFavoriteGameUseCase"),
         .package(path: "../../UseCases/RemoveFavoriteGameUseCase"),
+        .package(url: "https://github.com/CombineCommunity/CombineExt.git", from: "1.0.0"),
     ],
     targets: [
         .target(
@@ -29,9 +31,13 @@ let package = Package(
                 "GetGamesUseCase",
                 "AddFavoriteGameUseCase",
                 "RemoveFavoriteGameUseCase",
+                "CombineExt"
             ]),
         .testTarget(
             name: "GamesListSceneTests",
-            dependencies: ["GamesListScene"]),
+            dependencies: [
+                "UnitTestingUtilities",
+                "GamesListScene",
+            ]),
     ]
 )
